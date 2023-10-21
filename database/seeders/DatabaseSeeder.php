@@ -14,7 +14,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call(TonosSeeder::class);
         $this->call(DescripcionesSeeder::class);
-        $this->call(DoctoresSeeder::class);
-        $this->call(TrabajosSeeder::class);
+        //$this->call(DoctoresSeeder::class);
+        //$this->call(TrabajosSeeder::class);
     }
 }
