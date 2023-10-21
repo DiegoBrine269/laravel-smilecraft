@@ -22,7 +22,7 @@ class DescripcionRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'desc' => ['required', 'string'],
+            'descr' => ['required', 'string'],
             'precio' => ['required', 'integer'],
             'tipo' => ['required', 'integer'],
         ];
@@ -31,7 +31,7 @@ class DescripcionRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'desc.required' => 'La descripción es obligatoria',
+            'descr.required' => 'La descripción es obligatoria',
             'precio.required' => 'El precio es obligatorio',
             'tipo.required' => 'El tipo de trabajo es obligatorio'
         ];

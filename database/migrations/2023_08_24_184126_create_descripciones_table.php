@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('descripciones', function (Blueprint $table) {
             $table->id();
-            $table->string('desc');
+            $table->string('descr');
             $table->integer('precio');
             $table->integer('tipo')->default(1)->comment('  1 - Requiere tono
                                                             2 - No requiere tono, metales

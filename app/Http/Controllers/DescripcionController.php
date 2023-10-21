@@ -24,7 +24,7 @@ class DescripcionController extends Controller
     {
 
         $descripcion = new Descripcion();
-        $descripcion->desc = $request->desc;
+        $descripcion->descr = $request->descr;
         $descripcion->precio = $request->precio;
         $descripcion->tipo = $request->tipo;
 
