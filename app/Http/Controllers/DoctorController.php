@@ -21,7 +21,14 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $doctor = new Doctor();
+        $doctor->nombre = $request->nombre;
+
+        $doctor->save();
+
+        return [
+            'message' => 'Doctor guardado exitosamente'
+        ];
     }
 
     /**
