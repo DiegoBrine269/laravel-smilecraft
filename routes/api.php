@@ -48,10 +48,10 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::get('/tonos', [TonoController::class, 'index']);
-Route::post('login', [AuthController::class, 'login']);
+Route::post('/login', [AuthController::class, 'login']);
 // Rutas no protegidas
 
 
 
 
-Route::post('register', [AuthController::class, 'register']);
+Route::post('/register', [AuthController::class, 'register']);
