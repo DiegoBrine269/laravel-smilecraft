@@ -21,7 +21,7 @@ class TrabajoController extends Controller
             Trabajo::leftJoin('doctores', 'trabajos.id_doctor', '=', 'doctores.id')
             ->leftJoin('tonos', 'trabajos.id_tono', '=', 'tonos.id')
             ->leftJoin('descripciones', 'trabajos.id_descripcion', '=', 'descripciones.id')
-            ->select('folio', 'trabajos.id as id', 'paciente', 'descripciones.desc as desc', 'descripciones.tipo as tipo',
+            ->select('folio', 'trabajos.id as id', 'paciente', 'descripciones.descr as descr', 'descripciones.tipo as tipo',
                     'urgente', 'trabajos.id_tono as id_tono', 'doctores.nombre as doctor',
                     'doctores.id as id_doctor', 'descripciones.id as id_descripcion',
                     'ganchos_bola', 'ganchos_wipla', 'ganchos_vaciado',
@@ -45,17 +45,17 @@ class TrabajoController extends Controller
         // Suma de costo de ganchos
         $costoGancho = 0;
         if($request->ganchos_bola !== 0){
-            $costoGancho = Descripcion::where('desc', 'Gancho de bola')->select('precio')->first()->precio;
+            $costoGancho = Descripcion::where('descr', 'Gancho de bola')->select('precio')->first()->precio;
             $total = $total + $costoGancho * $request->ganchos_bola;
         } 
         
         if($request->ganchos_wipla !== 0) {
-            $costoGancho = Descripcion::where('desc', 'Gancho wipla')->select('precio')->first()->precio;
+            $costoGancho = Descripcion::where('descr', 'Gancho wipla')->select('precio')->first()->precio;
             $total = $total + $costoGancho * $request->ganchos_wipla;
         } 
         
         if($request->ganchos_vaciado !== 0) {
-            $costoGancho = Descripcion::where('desc', 'Gancho vaciado')->select('precio')->first()->precio;
+            $costoGancho = Descripcion::where('descr', 'Gancho vaciado')->select('precio')->first()->precio;
             $total = $total + $costoGancho * $request->ganchos_vaciado;
         }
         
@@ -111,17 +111,17 @@ class TrabajoController extends Controller
         // Suma de costo de ganchos
         $costoGancho = 0;
         if($request->ganchos_bola !== 0){
-            $costoGancho = Descripcion::where('desc', 'Gancho de bola')->select('precio')->first()->precio;
+            $costoGancho = Descripcion::where('descr', 'Gancho de bola')->select('precio')->first()->precio;
             $total = $total + $costoGancho * $request->ganchos_bola;
         } 
         
         if($request->ganchos_wipla !== 0) {
-            $costoGancho = Descripcion::where('desc', 'Gancho wipla')->select('precio')->first()->precio;
+            $costoGancho = Descripcion::where('descr', 'Gancho wipla')->select('precio')->first()->precio;
             $total = $total + $costoGancho * $request->ganchos_wipla;
         } 
         
         if($request->ganchos_vaciado !== 0) {
-            $costoGancho = Descripcion::where('desc', 'Gancho vaciado')->select('precio')->first()->precio;
+            $costoGancho = Descripcion::where('descr', 'Gancho vaciado')->select('precio')->first()->precio;
             $total = $total + $costoGancho * $request->ganchos_vaciado;
         }
         
@@ -179,7 +179,7 @@ class TrabajoController extends Controller
     {
         $trabajos = Trabajo::where('id_doctor', $id_doctor)
                     ->select('trabajos.id as id', 'descripciones.id as id_descripcion',
-                            'desc', 'paciente', 'id_tono', 'folio', DB::raw('DATE_FORMAT(fecha_recepcion, "%d/%m/%Y") as fecha'), 'precio as total')
+                            'descr', 'paciente', 'id_tono', 'folio', DB::raw('DATE_FORMAT(fecha_recepcion, "%d/%m/%Y") as fecha'), 'precio as total')
                     ->join('descripciones', 'trabajos.id_descripcion', 'descripciones.id')
                     ->get();
 

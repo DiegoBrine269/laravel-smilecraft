@@ -21,7 +21,7 @@ class PagoController extends Controller
             ->join('doctores', 'trabajos.id_doctor', '=', 'doctores.id')
             ->join('descripciones', 'trabajos.id_descripcion', '=', 'descripciones.id')
             ->select('pagos.id as id', 'id_trabajo', 'monto', DB::raw('DATE_FORMAT(fecha, "%d/%m/%Y") as fecha'), 
-                    'doctores.nombre as doctor', 'desc as trabajo', 'folio')
+                    'doctores.nombre as doctor', 'descr as trabajo', 'folio')
             ->orderBy('pagos.id', 'DESC')
             ->get()
         );
