@@ -36,7 +36,7 @@ class TrabajoResource extends JsonResource
             'tipo' => $this->tipo,
             'paciente' => $this->paciente,
             'doctor' => $this->doctor,
-            'trabajo' => $this->desc,
+            'trabajo' => $this->descr,
             'tono' => $this->id_tono,
             'extras' => $this->extras,
             'urgente' => $this->urgente ? 'Sí' : 'No',
